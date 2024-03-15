@@ -31,12 +31,16 @@
             height: auto;
             border-radius: 5px;
         }
-
-        @media (max-width: 768px) {
-            /* Adjust the max-width for smaller screens */
-            .description img {
-                max-width: 80%;
-            }
+        .exercise-content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+        .exercise-link {
+            color: blue;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -55,33 +59,27 @@
         <button onclick="toggleExercises()">Expand/Collapse All</button>
         <!-- Exercise 1 -->
         <div class="exercise">
-            <a class="exercise-link" href="exercise1.html" target="_blank">
-                <h3>Exercise 1</h3>
-            </a>
+            <h3 class="exercise-link" onclick="toggleExerciseContent('exercise1')">Exercise 1</h3>
             <!-- Exercise 1 content -->
-            <div id="exercise1">
+            <div class="exercise-content" id="exercise1">
                 <p>This is the content of Exercise 1.</p>
                 <p>You can replace this with your own content.</p>
             </div>
         </div>
         <!-- Exercise 2 -->
         <div class="exercise">
-            <a class="exercise-link" href="exercise2.html" target="_blank">
-                <h3>Exercise 2</h3>
-            </a>
+            <h3 class="exercise-link" onclick="toggleExerciseContent('exercise2')">Exercise 2</h3>
             <!-- Exercise 2 content -->
-            <div id="exercise2">
+            <div class="exercise-content" id="exercise2">
                 <p>This is the content of Exercise 2.</p>
                 <p>You can replace this with your own content.</p>
             </div>
         </div>
         <!-- Exercise 3 -->
         <div class="exercise">
-            <a class="exercise-link" href="exercise3.html" target="_blank">
-                <h3>Exercise 3</h3>
-            </a>
+            <h3 class="exercise-link" onclick="toggleExerciseContent('exercise3')">Exercise 3</h3>
             <!-- Exercise 3 content -->
-            <div id="exercise3">
+            <div class="exercise-content" id="exercise3">
                 <p>This is the content of Exercise 3.</p>
                 <p>You can replace this with your own content.</p>
             </div>
@@ -89,15 +87,23 @@
     </div>
     <script>
         function toggleExercises() {
-            var exercises = document.querySelectorAll('.exercise');
-            exercises.forEach(function(exercise) {
-                var content = exercise.querySelector('div');
+            var exerciseContents = document.querySelectorAll('.exercise-content');
+            exerciseContents.forEach(function(content) {
                 if (content.style.display === 'none') {
                     content.style.display = 'block';
                 } else {
                     content.style.display = 'none';
                 }
             });
+        }
+
+        function toggleExerciseContent(exerciseId) {
+            var exerciseContent = document.getElementById(exerciseId);
+            if (exerciseContent.style.display === 'none') {
+                exerciseContent.style.display = 'block';
+            } else {
+                exerciseContent.style.display = 'none';
+            }
         }
     </script>
 </body>
