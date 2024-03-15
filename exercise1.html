@@ -1,0 +1,138 @@
+<html>
+<head>
+    
+    <style>
+        table {
+        border-collapse: collapse;
+        }
+                
+        td, th {
+            border: 1px solid ;
+            
+    </style>
+</head>
+<body>
+
+
+
+
+<table>
+    <!--First row for frist name and its input -->
+    <tr>
+        <th>First Name</th>
+        <td><input type="text" id="Fname"  placeholder="please Enter your name"></td>
+    </tr>
+    <!--second  row for Last name  and its input -->
+    <tr>
+        <th>Last Name</th>
+        <td><input type="text" id="Lname"  placeholder ="please Enter your Last name "></td>
+    </tr>
+    
+    <!--thrid row for Age (from a drop down Menu) -->
+    <tr>
+        <th>Age</th>
+        <td>
+            <select id="age">
+            
+            </select>
+        </td>
+    </tr>
+    
+    <!--forth  row for Sex (Radio button) -->
+    <tr>
+        <th>Sex</th>
+        <td>
+            <input type="radio" name="gender" value="male" id="male"> Male
+            <input type="radio" name="gender" value="female" id="female"> Female
+        </td>
+    </tr>
+    
+    
+    <!--fifth   row for Hobby (CheckBox) -->
+    <tr>
+        <th>Hobby</th>
+        <td>
+            <input type="checkbox" id="hobby1"> Reading stars 
+            <input type="checkbox" id="hobby2"> Writing black magic
+            <input type="checkbox" id="hobby3"> swamming in the space
+            <input type="checkbox" id="hobby4"> flying to other world
+            <input type="checkbox" id="hobby5"> other
+            
+        </td>
+    </tr>
+    
+    <!--sixth  row for A OK buton  A Cancel buton in spearte coulmus :3 -->
+    <tr>
+        <td>
+            <button onclick="onOKButtonClick()">OK</button> 
+        </td>
+        <td>
+            <button onclick="onCancelButtonClick()">Cancel</button>
+        </td>
+    </tr>
+</table>
+
+
+<!--display the table data in a pop-up window after clicking the OK button using JavaScript-->
+
+<script>
+    
+    //using loop for picking age from 1 to 100 years old instead of writing the whole numbers :P
+    
+    var ageDropdown = document.getElementById('age');
+    for (var i = 1; i <= 100; i++) {
+        var option = document.createElement('option');
+        option.value = i;
+        option.text = i;
+        ageDropdown.add(option);
+    }
+
+    function onOKButtonClick() {
+        // Retrieve values from input fields fro all options witch the user used /typed 
+        var Fname = document.getElementById('Fname').value;
+        
+        var Lname = document.getElementById('Lname').value;
+        
+        var age = document.getElementById('age').value;
+        
+        var gender;
+        if (document.getElementById('male').checked) {
+            gender = 'Male';
+        } else if (document.getElementById('female').checked) {
+            gender = 'Female';
+        } else {
+            gender = 'Not specified';
+        }
+
+        var hobbies = [];
+        if (document.getElementById('hobby1').checked) {
+            hobbies.push('Reading stars');
+        }
+        if (document.getElementById('hobby2').checked) {
+            hobbies.push('Writing black magic');
+        }
+        if (document.getElementById('hobby3').checked) {
+            hobbies.push('swamming in the space');
+        }
+        if (document.getElementById('hobby4').checked) {
+            hobbies.push('flying to other world');
+        }
+        if (document.getElementById('hobby5').checked) {
+            hobbies.push('other');
+        }
+            
+
+        //here it wil show the collected information 
+        alert('Name: ' + Fname + '\nLast Name: ' + Lname + '\nAge: ' + age + '\nGender: ' + gender + '\nHobbies: ' + hobbies.join(', '));
+    }
+
+    function onCancelButtonClick() {
+        // You can add code here to perform actions when the Cancel button is clicked
+        alert('the Operation was magically cancelled :P ');
+    }
+</script>
+
+</body>
+</html>
+
+<!--End  of the code  the code was done by Saeed Al-amri , No:295188-->
