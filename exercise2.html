@@ -3,15 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise 2</title>
-    <!-- Link to your Exercise 2 CSS file -->
-    <link rel="stylesheet" href="exercise2_styles.css">
+    <title>User Information Form</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Exercise 2 content -->
-    <h1>Exercise 2</h1>
-    <p>This is the content of Exercise 2.</p>
-    <p>You can replace this with your own content.</p>
-    <!-- Add your HTML and JavaScript code for Exercise 2 -->
+
+<div class="container">
+    <div id="userForm">
+        <div class="table-row">
+            <div class="table-cell header">First Name</div>
+            <div class="table-cell input"><input type="text" id="Fname" placeholder="Please enter your first name"></div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell header">Last Name</div>
+            <div class="table-cell input"><input type="text" id="Lname" placeholder="Please enter your last name"></div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell header">Age</div>
+            <div class="table-cell input">
+                <select id="age"></select>
+            </div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell header">Sex</div>
+            <div class="table-cell input">
+                <input type="radio" name="gender" value="male" id="male"> Male
+                <input type="radio" name="gender" value="female" id="female"> Female
+            </div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell header">Hobby</div>
+            <div class="table-cell input">
+                <input type="checkbox" id="hobby1"> Reading stars
+                <input type="checkbox" id="hobby2"> Writing black magic
+                <input type="checkbox" id="hobby3"> Swimming in space
+                <input type="checkbox" id="hobby4"> Flying to other worlds
+                <input type="checkbox" id="hobby5"> Other
+            </div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell" colspan="2">
+                <button onclick="onOKButtonClick()">OK</button>
+            </div>
+            <div class="table-cell" colspan="2">
+                <button onclick="onCancelButtonClick()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var ageDropdown = document.getElementById('age');
+
+    // loop for age from 1 to 100 :P
+    for (var i = 1; i <= 100; i++) {
+        var option = document.createElement('option');
+        option.value = i;
+        option.text = i;
+        ageDropdown.add(option);
+    }
+
+    function onOKButtonClick() {
+        var Fname = document.getElementById('Fname').value;
+        var Lname = document.getElementById('Lname').value;
+        var age = document.getElementById('age').value;
+
+        var gender;
+        if (document.getElementById('male').checked) {
+            gender = 'Male';
+        } else if (document.getElementById('female').checked) {
+            gender = 'Female';
+        } else {
+            gender = 'Not specified';
+        }
+
+        var hobbies = [];
+        if (document.getElementById('hobby1').checked) {
+            hobbies.push('Reading stars');
+        }
+        if (document.getElementById('hobby2').checked) {
+            hobbies.push('Writing black magic');
+        }
+        if (document.getElementById('hobby3').checked) {
+            hobbies.push('Swimming in space');
+        }
+        if (document.getElementById('hobby4').checked) {
+            hobbies.push('Flying to other worlds');
+        }
+        if (document.getElementById('hobby5').checked) {
+            hobbies.push('Other');
+        }
+
+        alert('Name: ' + Fname + '\nLast Name: ' + Lname + '\nAge: ' + age + '\nGender: ' + gender + '\nHobbies: ' + hobbies.join(', '));
+    }
+
+    function onCancelButtonClick() {
+        alert('The operation was magically canceled :P');
+    }
+</script>
+
 </body>
 </html>
