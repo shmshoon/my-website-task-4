@@ -1,0 +1,32 @@
+.container {
+    margin: 20px;
+}
+
+#userForm {
+    display: table;
+    width: 30%;
+}
+
+.table-row {
+    display: table-row;
+}
+
+.table-cell {
+    display: table-cell;
+    border: 1px solid black;
+    padding: 5px;
+    text-align: left;
+}
+
+.header {
+    font-weight: bold;
+}
+
+.input input,
+.input select {
+    width: 50%;
+}
+
+.button-cell button {
+    width: 50%;
+}
