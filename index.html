@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Page with Exercises</title>
+    <style>
+        /* CSS styles for the page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .menu {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .description {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .description img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .exercise-link {
+            color: blue;
+            text-decoration: none;
+        }
+        .exercise {
+            margin-bottom: 20px;
+        }
+        /* Responsive adjustments */
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .description img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu -->
+    <div class="menu">
+        <!-- Placeholder for any menu items -->
+    </div>
+    <!-- Description -->
+    <div class="description">
+        <img src="placeholder.jpg" alt="Placeholder Image">
+        <p>This is the description of the page. You can add your own text and replace the placeholder image.</p>
+    </div>
+    <!-- Content -->
+    <div class="container">
+        <button onclick="toggleExercises()">Expand/Collapse All</button>
+        <!-- Exercise 1 -->
+        <div class="exercise">
+            <a class="exercise-link" href="exercise1.html" target="_blank">
+                <h3>Exercise 1</h3>
+            </a>
+            <!-- Exercise 1 content -->
+            <div id="exercise1">
+                <p>This is the content of Exercise 1.</p>
+                <p>You can replace this with your own content.</p>
+            </div>
+        </div>
+        <!-- Exercise 2 -->
+        <div class="exercise">
+            <a class="exercise-link" href="exercise2.html" target="_blank">
+                <h3>Exercise 2</h3>
+            </a>
+            <!-- Exercise 2 content -->
+            <div id="exercise2">
+                <p>This is the content of Exercise 2.</p>
+                <p>You can replace this with your own content.</p>
+            </div>
+        </div>
+        <!-- Exercise 3 -->
+        <div class="exercise">
+            <a class="exercise-link" href="exercise3.html" target="_blank">
+                <h3>Exercise 3</h3>
+            </a>
+            <!-- Exercise 3 content -->
+            <div id="exercise3">
+                <p>This is the content of Exercise 3.</p>
+                <p>You can replace this with your own content.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleExercises() {
+            var exercises = document.querySelectorAll('.exercise');
+            exercises.forEach(function(exercise) {
+                var content = exercise.querySelector('div');
+                if (content.style.display === 'none') {
+                    content.style.display = 'block';
+                } else {
+                    content.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
