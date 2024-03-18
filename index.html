@@ -5,98 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Page with Exercises</title>
     <style>
-        /* CSS styles for the page */
+        /* Common CSS styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: none; /* Center horizontally */
+            min-height: 100vh;
+        }
+        .placeholder {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .placeholder img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+            max-width: 1000px; /* Set max-width to prevent content from extending too far */
+            width: 100%; /* Occupy full width */
         }
         .menu {
             background-color: #333;
             color: #fff;
             padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            width: 200px;
+            margin-right: 20px; /* Add space between menu and content */
         }
-        .container {
+        .menu h2 {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        .menu li {
+            padding: 5px;
+            text-align: center;
+        }
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+        .menu a:hover {
+            background-color: #555;
+        }
+        .content {
+            flex: 1;
             padding: 20px;
         }
-        .description {
-            text-align: center;
-            margin-bottom: 20px;
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
-        .description img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
+        .exercise-content {
+            display: none;
+        }
+        .exercise-content.active {
+            display: block;
+        }
+        .exercise-link {
+            color: #000;
+            text-decoration: none;
         }
 
-        @media (max-width: 768px) {
-            /* Adjust the max-width for smaller screens */
-            .description img {
-                max-width: 80%;
+        /* Media queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack menu and content vertically on smaller screens */
+            }
+            .menu {
+                width: 100%; /* Occupy full width on smaller screens */
+                margin-right: 0; /* Remove margin on smaller screens */
+                margin-bottom: 20px; /* Add space between menu and content */
             }
         }
     </style>
 </head>
 <body>
-    <!-- Menu -->
-    <div class="menu">
-        <!-- Placeholder for any menu items -->
-    </div>
-    <!-- Description -->
-    <div class="description">
+    <!-- Placeholder Image -->
+    <div class="placeholder">
         <img src="placeholder.jpg" alt="Placeholder Image">
         <p>Welcome to my Project No. 4</p>
     </div>
-    <!-- Content -->
+    <!-- Container for Menu and Content -->
     <div class="container">
-        <button onclick="toggleExercises()">Expand/Collapse All</button>
-        <!-- Exercise 1 -->
-        <div class="exercise">
-            <a class="exercise-link" href="exercise1.html" target="_blank">
-                <h3>Exercise 1</h3>
-            </a>
-            <!-- Exercise 1 content -->
-            <div id="exercise1">
-                <p>Tables and input manipulation using
-JavaScript</p>
-                
-            </div>
+        <!-- Menu -->
+        <div class="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="exercise1.html" target="exerciseFrame">Exercise 1</a></li>
+                <li><a href="exercise2.html" target="exerciseFrame">Exercise 2</a></li>
+                <li><a href="exercise3.html" target="exerciseFrame">Exercise 3</a></li>
+            </ul>
         </div>
-        <!-- Exercise 2 -->
-        <div class="exercise">
-            <a class="exercise-link" href="exercise2.html" target="_blank">
-                <h3>Exercise 2</h3>
-            </a>
-            <!-- Exercise 2 content -->
-            <div id="exercise2">
-                <p>Styling a table using CSS and use of Tableless Tables</p>
-                
-            </div>
-        </div>
-        <!-- Exercise 3 -->
-        <div class="exercise">
-            <a class="exercise-link" href="exercise3.html" target="_blank">
-                <h3>Exercise 3</h3>
-            </a>
-            <!-- Exercise 3 content -->
-            <div id="exercise3">
-                <p>Sorting Using JavaScript</p>
-                <p>mehotds used [selection sorting ,quick sorting] </p>
-            </div>
+        <!-- Content -->
+        <div class="content">
+            <iframe name="exerciseFrame"></iframe>
         </div>
     </div>
+
     <script>
-        function toggleExercises() {
-            var exercises = document.querySelectorAll('.exercise');
+        function showExercise(exerciseId) {
+            var exercises = document.querySelectorAll('.exercise-content');
             exercises.forEach(function(exercise) {
-                var content = exercise.querySelector('div');
-                if (content.style.display === 'none') {
-                    content.style.display = 'block';
+                if (exercise.id === exerciseId) {
+                    exercise.classList.add('active');
                 } else {
-                    content.style.display = 'none';
+                    exercise.classList.remove('active');
                 }
             });
         }
