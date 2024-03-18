@@ -4,8 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Information Form</title>
-    <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            margin: 20px;
+            width: 30%; /* Fixed width */
+            display: inline-block; /* Allow elements to sit side by side */
+            vertical-align: top; /* Align the form to the top */
+        }
+
+        #userForm {
+            width: 100%;
+        }
+
+        .table-row {
+            display: table-row;
+        }
+
+        .table-cell {
+            display: table-cell;
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+
+        .header {
+            font-weight: bold;
+        }
+
+        .input input,
+        .input select {
+            width: calc(100% - 12px); /* Adjusted width */
+        }
+
+        .button-cell button {
+            width: 50%; /* Fixed width */
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 100%; /* Adjust to full width on small screens */
+            }
+        }
+    </style>
 </head>
 <body>
 
